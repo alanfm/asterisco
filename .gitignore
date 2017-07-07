@@ -1,0 +1,5 @@
+vendor/
+.phpintel/
+public/
+
+composer.lock

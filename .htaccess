@@ -1,0 +1,7 @@
+ErrorDocument 404 /erro/404/
+ErrorDocument 403 /erro/403/
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
