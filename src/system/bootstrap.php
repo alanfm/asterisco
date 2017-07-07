@@ -5,7 +5,7 @@
 $autoload = ROOT_DIR . '/vendor/autoload.php';
 
 if (!file_exists($autoload)) {
-    echo "Você precisa instalar os componentes com o comando <strong>composer install</strong>!";
+    echo "Você precisa instalar os componentes com o comando: <code>$ composer install</code>!";
     exit;
 }
 
