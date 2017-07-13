@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Libraries;
+namespace App\Libraries\Bootstrap;
 
 use HTMLBuilder\ElementFactory as Element;
 
@@ -11,15 +11,16 @@ final class Alerts
     private static function html($alert)
     {
         self::$html = Element::make('div')->attr('class', ['alert', 'alert-'.$alert, 'alert-dismissible'])
-                                                   ->attr('role', 'alert');
+                                          ->attr('role', 'alert')
+                                          ->value(Element::make('button')->attr('type', ['button'])->attr('class', ['close'])->attr('data-dismiss', ['alert'])->value(Element::make('span')->attr('aria-hidden', ['true'])->value('&times;')))
+                                          ->value(Element::make('strong')->value('Aviso!&nbsp;'));
+                   ;
     }
 
     public static function render($alert, $message = null)
     {
         self::html($alert);
-        self::$html->value(Element::make('button')->attr('type', ['button'])->attr('class', ['close'])->attr('data-dismiss', ['alert'])->value(Element::make('span')->attr('aria-hidden', ['true'])->value('&times;')))
-                   ->value(Element::make('strong')->value('Aviso!&nbsp'))
-                   ->value(!is_null($message)? $message: self::message($alert));
+        self::$html->value(!is_null($message)? $message: self::message($alert));
 
         return self::$html->render();
     }

@@ -7,7 +7,7 @@ define('ROOT_DIR', __DIR__);
 /**
  * Configurações e inicializações do sistema
  */
-require_once __DIR__ . '/src/System/bootstrap.php';
+require_once ROOT_DIR . '/src/System/bootstrap.php';
 
 session_start();
 

@@ -7,7 +7,7 @@
 namespace System\Core;
 
 use System\Core\View;
-
+use ActiveRecord\Model;
 /**
  * Class Controller
  * 
@@ -34,7 +34,7 @@ class Controller
      * recebe os valores a ser passados para a view
      */
     protected $data;
-    
+
     /**
      * Method __construct
      * @access public
@@ -88,7 +88,7 @@ class Controller
     }
 
     /**
-     * Method outputJSON
+     * Method JSON
      * @access public
      * 
      * Recebe um array como parametro e imprime

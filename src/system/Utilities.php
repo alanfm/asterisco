@@ -27,6 +27,34 @@ class Utilities
         exit();
     }
 
+    public static function sanitize($var, $type = null)
+    {
+        switch ($type) {
+            case 'int':
+            case 'integer':
+                $var = (int)$var;
+                break;
+            case 'float':
+            case 'real':
+                $var = (float)$var;
+                break;
+            default:
+                $var = (string)$var;
+                break;
+        }
+        
+        return filter_var($var, self::filter($var));
+    }
+
+    private static function filter($var)
+    {
+        if (is_int($var)) {
+            return FILTER_SANITIZE_NUMBER_INT;
+        }
+        
+        return FILTER_SANITIZE_STRING;
+    }
+
     public static function mask($val, $mask)
     {
         $val = (string) $val;

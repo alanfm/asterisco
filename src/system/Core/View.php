@@ -128,7 +128,7 @@ class View
 
     public static function link($uri)
     {
-        return getenv('APP_DIR_VIEW') . $uri;
+        return getenv('URL_BASE') . $uri;
     }
     
     /**
