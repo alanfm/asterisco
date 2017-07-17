@@ -91,8 +91,8 @@ class Controller
      * Method JSON
      * @access public
      * 
-     * Recebe um array como parametro e imprime
-     * na tela os dados no formato JSON
+     * Recebe um array como parametro e 
+     * retorna os dados no formato JSON
      * 
      * @param array
      */

@@ -11,6 +11,11 @@ if (!file_exists($autoload)) {
 
 require_once $autoload;
 
+use System\Core\PHPFunctions as PHP;
+use System\Core\Session;
+
+Session::start();
+
 /**
  * Carrega o arquivo deconfigurações
  */
@@ -19,26 +24,31 @@ require_once $autoload;
 /**
  * Seta a configuração de caracteres
  */
-mb_internal_encoding(getenv('CHARSET'));
+PHP::mb_internal_encoding(PHP::getenv('CHARSET'));
 
 /**
  * Seta o modelo padrão para datas
  */
-date_default_timezone_set(getenv('TIMEZONE'));
+PHP::date_default_timezone_set(PHP::getenv('TIMEZONE'));
 
 /**
  * Configuração das sessões
  */
-ini_set('session.cookie_httponly', 1);
-session_cache_expire(getenv('SESSION_EXPIRE'));
-session_name(md5(getenv('SECURITY_KEY').$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_USER_AGENT']));
+PHP::ini_set('session.cookie_httponly', 1);
 
 /**
  * Configurações do ActiveRecordo PHP
  */
 \ActiveRecord\Config::initialize(function($cfg) {
-    $cfg->set_connections(array('development' =>
-                                sprintf('mysql://%s:%s@%s/%s?charset=utf8', getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_HOST'), getenv('DB_NAME'))));
+    $cfg->set_connections([
+        'development' =>
+            PHP::sprintf(
+                'mysql://%s:%s@%s/%s?charset=utf8',
+                PHP::getenv('DB_USER'),
+                PHP::getenv('DB_PASS'),
+                PHP::getenv('DB_HOST'),
+                PHP::getenv('DB_NAME'))
+            ]);
 });
 
 /**
@@ -49,7 +59,6 @@ session_name(md5(getenv('SECURITY_KEY').$_SERVER['REMOTE_ADDR'].$_SERVER['HTTP_U
 /**
  * Rotas do sistema
  */
-
 $router = new Gears\Router();
 $router->routesPath = ROOT_DIR . '/src/app/Routers';
 $router->exitOnComplete = true;
@@ -57,10 +66,10 @@ $router->exitOnComplete = true;
 /**
  * Cria um cache da página de erro!
  */
-ob_start();
+PHP::ob_start();
     (new \App\Controllers\Error())->index(404);
-    $error404 = ob_get_contents();
-ob_end_clean();
+    $error404 = PHP::ob_get_contents();
+PHP::ob_end_clean();
 $router->notFound = $error404;
 
 $router->dispatch();

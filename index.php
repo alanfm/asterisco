@@ -9,8 +9,6 @@ define('ROOT_DIR', __DIR__);
  */
 require_once ROOT_DIR . '/src/System/bootstrap.php';
 
-session_start();
-
 use Symfony\Component\Debug\Debug;
 
 Debug::enable();
