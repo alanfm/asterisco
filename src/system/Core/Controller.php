@@ -6,6 +6,7 @@
  */
 namespace System\Core;
 
+use Symfony\Component\Routing\Exception\InvalidParameterException;
 use System\Core\View;
 use ActiveRecord\Model;
 /**
@@ -93,8 +94,12 @@ class Controller
      * 
      * Recebe um array como parametro e 
      * retorna os dados no formato JSON
-     * 
+     *
+     * @throws \Exception
+     * Parametro deve ser um array
+     *
      * @param array
+     * @return Controller
      */
     public function JSON(array $data)
     {

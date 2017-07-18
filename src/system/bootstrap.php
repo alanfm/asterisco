@@ -72,4 +72,7 @@ PHP::ob_start();
 PHP::ob_end_clean();
 $router->notFound = $error404;
 
+/**
+ * Executa o router
+ */
 $router->dispatch();

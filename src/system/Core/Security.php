@@ -3,7 +3,6 @@
 namespace System\Core;
 
 use System\Core\PHPFunctions as PHP;
-use System\Core\Session;
 use HTMLBuilder\ElementFactory as Element;
 
 class Security

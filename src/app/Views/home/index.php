@@ -37,7 +37,7 @@
                         <p>Microframework Asterisco</p>
                         <p><small class="text-muted">Sistema desenvolvido pela <a href="//www.asterisco.xyz" target="_blank">Asterisco Soluções</a> em TI para projetos de pequeno porte.</small></p>
                     </div>
-                    <?=App\Libraries\Bootstrap\Pagination::render(16*16, 11, 'clientes/8')?>
+                    <?=App\Libraries\Bootstrap\Pagination::render(4*16, 2, 'clientes/8')?>
                     <?=App\Libraries\Bootstrap\Alerts::render('success')?>
                 </div>
             </div>

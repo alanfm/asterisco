@@ -40,6 +40,9 @@ class View
      * Method getTemplate
      * 
      * Retorna o nome do template
+     *
+     * @throws \Exception
+     * O templete deve ser definido previamente
      * 
      * @return string
      */
@@ -56,6 +59,12 @@ class View
      * Method setTemplate
      * 
      * Atribui um valor para o nome do template
+     *
+     * @throws \Exception
+     * Nome do template deve ser uma string
+     *
+     * @throws \Exception
+     * O valor do parametro deve ser um arquivo na pasta view
      * 
      * @param string
      * @return object
@@ -93,6 +102,9 @@ class View
      * 
      * Atribui um valor para o vetor de variáveis
      * que podem ser usadas no template
+     *
+     * @throws \Exception
+     * O parametro deve ser um array
      * 
      * @param array
      * @return object

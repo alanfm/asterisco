@@ -3,7 +3,6 @@
 namespace System\Core;
 
 use System\Core\PHPFunctions as PHP;
-use System\Core\Security;
 
 class Session extends PHP
 {

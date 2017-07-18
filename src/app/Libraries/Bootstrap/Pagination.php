@@ -77,7 +77,7 @@ final class Pagination
     public static function render(int $count, int $current, string $uri)
     {
         // Seta a quantidade de registro por página
-        self::$limit = $count / getenv('APP_LIMIT_PAGINATION');
+        self::$limit = ceil($count / getenv('APP_LIMIT_PAGINATION'));
         // Seta a uri do app
         self::$uri = $uri;
         // Cria a tag ul
