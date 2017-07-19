@@ -4,15 +4,6 @@ namespace System;
 
 class Utilities
 {
-    public static function token()
-    {
-        if (!isset($_SESSION['token'])) {        
-            $_SESSION['token'] = md5(uniqid(rand(), true));
-        }
-        
-        return $_SESSION['token'];
-    }
-
     /**
      * @method redirect()
      * @access public
@@ -25,34 +16,6 @@ class Utilities
     {
         header('Location: ' . URL_BASE . $url);
         exit();
-    }
-
-    public static function sanitize($var, $type = null)
-    {
-        switch ($type) {
-            case 'int':
-            case 'integer':
-                $var = (int)$var;
-                break;
-            case 'float':
-            case 'real':
-                $var = (float)$var;
-                break;
-            default:
-                $var = (string)$var;
-                break;
-        }
-        
-        return filter_var($var, self::filter($var));
-    }
-
-    private static function filter($var)
-    {
-        if (is_int($var)) {
-            return FILTER_SANITIZE_NUMBER_INT;
-        }
-        
-        return FILTER_SANITIZE_STRING;
     }
 
     public static function mask($val, $mask)
@@ -73,5 +36,10 @@ class Utilities
         }
 
         return $maskared;
+    }
+
+    public static function url($uri)
+    {
+        return substr(getenv('URL_BASE'), 0, -1) . $uri;
     }
 }

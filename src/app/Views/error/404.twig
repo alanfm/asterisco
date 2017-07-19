@@ -1,0 +1,22 @@
+{% extends 'template/base.twig' %}
+
+{% block title %}
+    Microframework Asterisco
+{% endblock %}
+
+{% block content %}
+<div class="col-lg-6 col-lg-offset-3">
+    <div class="jumbotron text-center">
+        <h1><i class="fa fa-exclamation-triangle fa-lg text-danger" aria-hidden="true"></i> HTTP Erro 404</h1>
+        <h2>Página não encontrada!</h2>
+        <p>O sistema não consegue identificar a página que você está tentando acessar. Motivos possiveis para esse problema devem ser: a página não está disponivel; ou a mesma não existe.</p>
+        <p>Use uma das opções abaixo</p>
+        <p>
+            <a href="#" class="btn btn-lg btn-default" onclick="history.go(-1);" title="Voltar"><i class="fa fa-chevron-left fa-lg" aria-hidden="true"></i></a>
+            <a href="{{ link.current_url }}" class="btn btn-lg btn-default" title="Recarregar"><i class="fa fa-refresh fa-lg" aria-hidden="true"></i></a>
+            <a href="{{ link.home }}" class="btn btn-lg btn-default" title="Página Inicial"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a>
+
+        </p>
+    </div>
+</div>
+{% endblock %}

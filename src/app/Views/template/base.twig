@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        {% block head %}
+            <meta charset="UTF-8">
+            <title>
+                {% block title %}
+                {% endblock %}
+            </title>
+            {% include 'template/head.twig' %}
+        {% endblock %}
+    </head>
+    <body>
+        {% block menu %}
+        {% endblock %}
+        <div class="container-fluid">
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
+            <footer class="row">
+                {% block footer %}
+                {% endblock %}
+            </footer>
+        </div>
+    </body>
+</html>

@@ -23,7 +23,8 @@
         "php-activerecord/php-activerecord": "*",
         "symfony/dotenv": "^3.3",
         "alanfm/html-builder": "^0.1.1",
-        "symfony/validator": "^3.3"
+        "symfony/validator": "^3.3",
+        "twig/twig": "^2.4"
     },
 
     "autoload": {

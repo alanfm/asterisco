@@ -7,6 +7,7 @@
 namespace App\Controllers;
 
 use System\Core\Controller;
+use System\Utilities;
 
 final class Error extends Controller
 {
@@ -19,6 +20,10 @@ final class Error extends Controller
     {
         $error = filter_var($error, FILTER_SANITIZE_NUMBER_INT);
 
-        $this->view('error/'.$error)->render();
+        $link = new \stdClass;
+        $link->current_url = Utilities::url($_SERVER['REQUEST_URI']);
+        $link->home = Utilities::url('/home');
+
+        $this->view('error/'.$error.'.twig')->data(['link'=>$link])->render();
     }
 }

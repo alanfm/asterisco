@@ -11,9 +11,15 @@ if (!file_exists($autoload)) {
 
 require_once $autoload;
 
+/**
+ * Configuração das sessões
+ */
+
 use System\Core\PHPFunctions as PHP;
 use System\Core\Session;
+use System\Core\DependencyInjection as DI;
 
+PHP::ini_set('session.cookie_httponly', 1);
 Session::start();
 
 /**
@@ -30,11 +36,6 @@ PHP::mb_internal_encoding(PHP::getenv('CHARSET'));
  * Seta o modelo padrão para datas
  */
 PHP::date_default_timezone_set(PHP::getenv('TIMEZONE'));
-
-/**
- * Configuração das sessões
- */
-PHP::ini_set('session.cookie_httponly', 1);
 
 /**
  * Configurações do ActiveRecordo PHP

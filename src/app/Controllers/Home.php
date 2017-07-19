@@ -17,6 +17,6 @@ final class Home extends Controller
 
     public function index()
     {
-        $this->view('home/index')->render();
+        $this->view->template('home/home.twig')->render();
     }
 }
