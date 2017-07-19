@@ -1,8 +1,8 @@
 <?php
 use App\Controllers\Home;
 
-Route::get('/home', function() {
-    (new Home())->index();
+Route::get('/home/{id}', function($id) {
+    (new Home())->index($id);
 });
 
 Route::get('/', function() {

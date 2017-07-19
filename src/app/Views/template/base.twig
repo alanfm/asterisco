@@ -2,10 +2,10 @@
 <html lang="pt-br">
     <head>
         {% block head %}
+            <base href="{{ app_url }}">
             <meta charset="UTF-8">
             <title>
-                {% block title %}
-                {% endblock %}
+                {{ app_title }}
             </title>
             {% include 'template/head.twig' %}
         {% endblock %}

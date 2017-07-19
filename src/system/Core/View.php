@@ -45,7 +45,6 @@ class View
     public function __construct()
     {
         $this->twig = new \Twig_Environment(new \Twig_Loader_Filesystem(ROOT_DIR.'/src/app/Views'));
-        $this->data = [];
     }
 
     /**
@@ -69,19 +68,6 @@ class View
         $this->template = $template;
 
         return $this;
-    }
-
-    /**
-     * Method getData
-     * 
-     * Retorna o vetor com os valores que
-     * poderam ser visualizados pelo template
-     * 
-     * @return array
-     */
-    protected function getData()
-    {
-        return $this->data;
     }
 
     /**
