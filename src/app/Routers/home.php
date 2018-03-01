@@ -8,3 +8,7 @@ Route::get('/home/{id}', function($id) {
 Route::get('/', function() {
     (new Home())->index();
 });
+
+Route::get('/navbar', function() {
+    (new Home())->navbar();
+});

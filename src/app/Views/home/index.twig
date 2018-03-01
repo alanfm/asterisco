@@ -1,21 +1,15 @@
 {% extends 'template/base.twig' %}
-
 {% block head %}
     {{ parent() }}
     <style>
-        html {
-            position: relative;
-            min-height: 100%;
-        }
-        body {
-            margin-top: 6rem;
-        }
-        h1 {
-            margin-bottom: 6rem;
+        body{
+            margin-top: 70px;
         }
     </style>
 {% endblock %}
-
+{% block menu %}
+    {% include 'template/navbar.twig' %}
+{% endblock %}
 {% block content %}
     <div class="container-fluid">
         <div class="row">
@@ -29,4 +23,9 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block footer %}
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 {% endblock %}

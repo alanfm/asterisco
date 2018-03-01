@@ -10,7 +10,7 @@
             {% include 'template/head.twig' %}
         {% endblock %}
     </head>
-    <body>
+    <body style="font-family: 'Dosis',sans-serif">
         {% block menu %}
         {% endblock %}
         <div class="container-fluid">
@@ -20,6 +20,7 @@
             </div>
             <footer class="row">
                 {% block footer %}
+                    {% include 'template/footer.twig' %}
                 {% endblock %}
             </footer>
         </div>

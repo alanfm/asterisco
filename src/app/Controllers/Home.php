@@ -23,4 +23,9 @@ final class Home extends Controller
 
         $this->view->template('home/home.twig')->data($this->data)->render();
     }
+
+    public function navbar()
+    {
+        $this->view->template('home/index.twig')->data($this->data)->render();
+    }
 }
