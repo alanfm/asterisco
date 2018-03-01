@@ -44,6 +44,8 @@ class Controller
      */
     public function __construct()
     {
+        $this->data['app_title'] = getenv('APP_TITLE');
+        $this->data['app_url'] = getenv('APP_URL');
         $this->view = new View();
     }
     

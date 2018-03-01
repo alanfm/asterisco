@@ -2,6 +2,8 @@
 
 namespace System;
 
+use System\Core\PHPFunctions as PHP;
+
 class Utilities
 {
     /**
@@ -14,7 +16,7 @@ class Utilities
      */
     public static function redirect($url)
     {
-        header('Location: ' . URL_BASE . $url);
+        header('Location: ' . getenv('APP_URL') . $url);
         exit();
     }
 

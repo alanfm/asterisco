@@ -16,11 +16,11 @@ final class Home extends Controller
         parent::__construct();
     }
 
-    public function index($id = null)
+    public function index($id = 1)
     {
-        $id = is_null($id)? 1: filter_var($id, FILTER_SANITIZE_NUMBER_INT);
-        $this->view->template('home/home.twig')->data(['pagination'=> Pagination::render(11*16, $id, 'home'),
-                                                       'app_title'=>getenv('APP_TITLE'),
-                                                       'app_url'=>getenv('URL_BASE')])->render();
+        // Foi feito uma gambiarra para validação de pagina atual
+        $this->data['pagination'] = Pagination::render(12*16, intval($id), 'home');
+
+        $this->view->template('home/home.twig')->data($this->data)->render();
     }
 }

@@ -18,12 +18,13 @@ final class Error extends Controller
 
     public function index(int $error)
     {
-        $error = filter_var($error, FILTER_SANITIZE_NUMBER_INT);
-
         $link = new \stdClass;
         $link->current_url = Utilities::url($_SERVER['REQUEST_URI']);
         $link->home = Utilities::url('/home');
 
-        $this->view('error/'.$error.'.twig')->data(['link'=>$link])->render();
+        $this->data['link'] = $link;
+        $this->data['app_title'] = 'Erro 404 - '.getenv('APP_TITLE');
+
+        $this->view('error/'.$error.'.twig')->data($this->data)->render();
     }
 }
